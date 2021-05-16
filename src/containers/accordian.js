@@ -15,6 +15,7 @@ function AccordianContainer() {
         <OptForm.Input placeholder="Email Address" />
         <OptForm.Button>Try it now</OptForm.Button>
         <OptForm.Text>Ready to watch? Enter your email right now</OptForm.Text>
+        <OptForm.Break />
       </OptForm>
     </Accordian>
   );
