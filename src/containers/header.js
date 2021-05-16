@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../components";
+import { Header, OptForm } from "../components";
 import * as ROUTES from "../constants/routes";
 function HeaderContainer({ children }) {
   return (
@@ -9,8 +9,8 @@ function HeaderContainer({ children }) {
           <Header.Logo to={ROUTES.HOME} alt="netflix" src="images/logo.svg" />
           <Header.ButtonLink>Sign In</Header.ButtonLink>
         </Header.Frame>
+        {children}
       </Header>
-      {children}
     </>
   );
 }

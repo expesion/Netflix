@@ -2,15 +2,24 @@ import React from "react";
 import AccordianContainer from "../containers/accordian";
 import FooterContainer from "../containers/footer";
 import JumbotronContainer from "../containers/jumbotron";
-import HomeContainer from "../containers/header";
+import HeaderContainer from "../containers/header";
+import { OptForm } from "../components";
 function Home() {
   return (
     <>
-      <HomeContainer>
-        <JumbotronContainer />
-        <AccordianContainer />
-        <FooterContainer />
-      </HomeContainer>
+      <HeaderContainer>
+        <OptForm>
+          <OptForm.Input placeholder="Email Address" />
+          <OptForm.Button>Try it now</OptForm.Button>
+          <OptForm.Text>
+            Ready to watch? Enter your email right now
+          </OptForm.Text>
+          <OptForm.Break />
+        </OptForm>
+      </HeaderContainer>
+      <JumbotronContainer />
+      <AccordianContainer />
+      <FooterContainer />
     </>
   );
 }
