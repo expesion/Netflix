@@ -1,16 +1,17 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import AccordianContainer from "./containers/accordian";
-import FooterContainer from "./containers/footer";
-import JumbotronContainer from "./containers/jumbotron";
+
 import * as ROUTES from "./constants/routes";
+import { Home, Browse, SignIn, SignUp } from "./pages";
 function App() {
   return (
     <Router>
-      <Route exact path={ROUTES.HOME} />
-      <JumbotronContainer />
-      <AccordianContainer />
-      <FooterContainer />
+      <Switch>
+        <Route exact path={ROUTES.HOME} component={Home} />
+        <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
+        <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
+        <Route exact path={ROUTES.BROWSE} component={Browse} />
+      </Switch>
     </Router>
   );
 }
