@@ -17,24 +17,32 @@ function Accordian({ children, ...restProps }) {
   );
 }
 Accordian.Title = function AccordianTitle({ children, ...restProps }) {
-  <Title {...restProps}>{children}</Title>;
+  return <Title {...restProps}>{children}</Title>;
 };
 Accordian.Frame = function AccordianFrame({ children, ...restProps }) {
-  <Frame {...restProps}>{children}</Frame>;
+  return <Frame {...restProps}>{children}</Frame>;
 };
 Accordian.Item = function AccordianItem({ children, ...restProps }) {
   const [toggleShow, setToggleShow] = useState(false);
-  <ToggleContext.Provider value={(toggleShow, setToggleShow)}>
-    <Item {...restProps}>{children}</Item>
-  </ToggleContext.Provider>;
+  return (
+    <ToggleContext.Provider value={(toggleShow, setToggleShow)}>
+      <Item {...restProps}>{children}</Item>
+    </ToggleContext.Provider>
+  );
 };
 Accordian.Header = function AccordianHeader({ children, ...restProps }) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
-  <Header
-    onClick={() => setToggleShow((prevValue) => !prevValue)}
-    {...restProps}
-  >
-    {children}
-  </Header>;
+  return (
+    <Header
+      onClick={() => setToggleShow((prevValue) => !prevValue)}
+      {...restProps}
+    >
+      {children}
+    </Header>
+  );
+};
+Accordian.Body = function AccordianBody({ children, ...restProps }) {
+  const { toggleshow } = useContext(ToggleContext);
+  return toggleshow && <Body {...restProps}>{children}</Body>;
 };
 export default Accordian;
