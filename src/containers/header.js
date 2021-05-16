@@ -6,7 +6,7 @@ function HeaderContainer({ children }) {
     <>
       <Header>
         <Header.Frame>
-          <Header.Logo />
+          <Header.Logo src="images/logo.svg" />
           <Header.ButtonLink>Sign In</Header.ButtonLink>
         </Header.Frame>
       </Header>
