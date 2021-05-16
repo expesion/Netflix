@@ -1,14 +1,17 @@
 import React from "react";
 import { Header } from "../components";
 
-function HeaderContainer() {
+function HeaderContainer({ children }) {
   return (
-    <Header>
-      <Header.Frame>
-        <Header.Logo />
-        {/* <Header.Button /> */}
-      </Header.Frame>
-    </Header>
+    <>
+      <Header>
+        <Header.Frame>
+          <Header.Logo />
+          <Header.ButtonLink>Sign In</Header.ButtonLink>
+        </Header.Frame>
+      </Header>
+      {children}
+    </>
   );
 }
 
