@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import FooterContainer from "../containers/footer";
 import HeaderContainer from "../containers/header";
+import { FirebaseContext } from "../context/firebase";
 import { Form } from "../components";
+import * as ROUTES from "../constants/routes";
 function Signin() {
-  const [emailAddress, setEmailAddress] = useState();
-  const [password, setPassword] = useState();
-  const [error, setError] = useState();
+  const { firebase } = useContext(FirebaseContext);
+  const history = useHistory();
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const isInvalid = password === "" || emailAddress == "";
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => {
+        setPassword("");
+        setError(error.message.replace(/\//g, ""));
+      });
   };
   return (
     <>
@@ -32,6 +48,12 @@ function Signin() {
               Sign In
             </Form.Submit>
           </Form.Base>
+          <Form.Text>
+            New to Netlix?<Form.Link to="/signup">Sign up now</Form.Link>
+          </Form.Text>
+          <Form.TextSmall>
+            This page is created as a dummy project by Thaha
+          </Form.TextSmall>
         </Form>
       </HeaderContainer>
 
