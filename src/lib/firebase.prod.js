@@ -1,7 +1,7 @@
 import Firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-
+/* import { seedDatabase } from "../seed"; */
 const config = {
   apiKey: "AIzaSyAduV93u_Vcjhv8654aLsbuqdrabNAq0hw",
   authDomain: "netflix-56bf0.firebaseapp.com",
@@ -11,4 +11,5 @@ const config = {
   appId: "1:96310561484:web:2bbfad979110ae4b071069",
 };
 const firebase = Firebase.initializeApp(config);
+/* seedDatabase(firebase); */
 export { firebase };
