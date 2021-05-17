@@ -18,9 +18,20 @@ function Signin() {
 
     firebase
       .auth()
-      .signInWithEmailAndPassword(emailAddress, password)
-      .then(() => {
-        history.push(ROUTES.BROWSE);
+      .createUserWithEmailAndPassword(emailAddress, password)
+      .then((result) => {
+        result.user
+          .updateProfile({
+            displayName: firstname,
+            photoUrl: Math.floor(Math.random() * +1),
+          })
+          .then(() => {
+            history.push(ROUTES.BROWSE);
+          })
+          .catch((error) => {
+            setPassword("");
+            setError(error.message.replace(/\//g, ""));
+          });
       })
       .catch((error) => {
         setPassword("");
