@@ -23,13 +23,13 @@ function App() {
           loggedInPath={ROUTES.BROWSE}
           user={user}
         />
-        <Route exact path={ROUTES.HOME} component={Home} />
         <ProtectedRoute
           exact
           path={ROUTES.BROWSE}
           component={Browse}
           user={user}
         />
+        <Route exact path={ROUTES.HOME} component={Home} />
       </Switch>
     </Router>
   );
