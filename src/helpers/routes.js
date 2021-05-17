@@ -23,9 +23,10 @@ export function ProtectedUser({ user, component: Component, ...restProps }) {
   return (
     <Route
       {...restProps}
-      component={() => {
+      component={({ location }) => {
+        console.log(location);
         if (!user) {
-          return <Redirect to={{ pathname: "/" }} />;
+          return <Redirect to={{ pathname: "/sigin", state: location }} />;
         } else {
           return <Component />;
         }
