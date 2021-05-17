@@ -12,7 +12,7 @@ function Signin() {
   const [password, setPassword] = useState("");
   const [firstname, setFirstname] = useState("");
   const [error, setError] = useState(null);
-  const isInvalid = password === "" || emailAddress == "";
+  const isInvalid = password === "" || emailAddress === "";
   const handleSubmit = (event) => {
     event.preventDefault();
 
