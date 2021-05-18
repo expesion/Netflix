@@ -3,12 +3,19 @@ import SelectProfileContainer from "./profile";
 import { FirebaseContext } from "../context/firebase";
 function BrowseContainer({ slides }) {
   const [profile, setProfile] = useState({});
+  const [loading, setLoading] = useState(false);
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
   useEffect(() => {
-    setTimeout(() => {}, 3000);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
   }, [profile.displayName]);
-  return (
+  return profile.displayName ? (
+    loading ? (
+      <Loading src={user.photoURL} />
+    ) : null
+  ) : (
     <div>
       <SelectProfileContainer user={user} setProfile={setProfile} />
     </div>
