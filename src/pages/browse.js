@@ -7,7 +7,7 @@ function Browse() {
   const { films } = useContent("films");
   const slides = selectionFilter({ series, films });
   console.log(slides);
-  return <BrowseContainer />;
+  return <BrowseContainer slides={slides} />;
 }
 
 export default Browse;
