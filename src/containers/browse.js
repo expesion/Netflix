@@ -22,10 +22,17 @@ function BrowseContainer({ slides }) {
       <Loading src={user.photoURL} />
     ) : (
       <>
-        <Header src="joker1">
+        <Header src="joker1" dontShowOnSmallViewPort>
           <Header.Frame>
-            <Header.Logo to={ROUTES.HOME} alt="netflix" src="images/logo.svg" />
-            <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
+            <Header.Group>
+              <Header.Logo
+                to={ROUTES.HOME}
+                alt="netflix"
+                src="images/logo.svg"
+              />
+              <Header.TextLink>Series</Header.TextLink>
+              <Header.TextLink>Films</Header.TextLink>
+            </Header.Group>
           </Header.Frame>
           <Header.Feature>
             <Header.FeatureCallOut>

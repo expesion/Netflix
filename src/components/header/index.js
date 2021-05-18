@@ -8,6 +8,10 @@ import {
   Feature,
   Text,
   FeatureCallOut,
+  Link,
+  Group,
+  Dropdown,
+  Picture,
 } from "./style/header";
 function Header({ bg = true, children, ...restProps }) {
   return bg ? <Background {...restProps}>{children}</Background> : children;
@@ -24,8 +28,14 @@ Header.Feature = function HeaderFeature({ children, ...restProps }) {
 Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
 };
+Header.TextLink = function HeaderLink({ children, ...restProps }) {
+  return <Link {...restProps}>{children}</Link>;
+};
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
+};
+Header.Group = function HeaderGroup({ children, ...restProps }) {
+  return <Group {...restProps}>{children}</Group>;
 };
 Header.Logo = function HeaderLogo({ to = "/", ...restProps }) {
   return (
