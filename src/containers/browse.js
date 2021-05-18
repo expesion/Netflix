@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import SelectProfileContainer from "./profile";
-function BrowseContainer({ slides, user }) {
+import { FirebaseContext } from "../context/firebase";
+function BrowseContainer({ slides }) {
+  const [profile, setProfile] = useState({});
+  const { firebase } = useContext(FirebaseContext);
+  const user = firebase.auth().currentUser || {};
+  useEffect(() => {
+    setTimeout(() => {}, 3000);
+  }, [profile.displayName]);
   return (
     <div>
-      <SelectProfileContainer user={user} />
+      <SelectProfileContainer user={user} setProfile={setProfile} />
     </div>
   );
 }

@@ -30,7 +30,7 @@ export function ProtectedRoute({ user, component: Component, ...restProps }) {
             <Redirect to={{ pathname: ROUTES.SIGN_IN, state: location }} />
           );
         } else {
-          return <Component user={user} />;
+          return <Component />;
         }
       }}
     />
