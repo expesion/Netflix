@@ -8,5 +8,7 @@ function Loading({ src, ...restProps }) {
     </Spinner>
   );
 }
-
+Loading.ReleaseBody = function LoadingReleaseBody() {
+  return <ReleaseBody />;
+};
 export default Loading;
