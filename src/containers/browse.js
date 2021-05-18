@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import SelectProfileContainer from "./profile";
 import { FirebaseContext } from "../context/firebase";
 import { Header, Loading } from "../components";
+import * as ROUTES from "../constants/routes";
 function BrowseContainer({ slides }) {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,14 @@ function BrowseContainer({ slides }) {
     ) : (
       <>
         <Header src="joker1">
+          <Header.Frame>
+            <Header.Logo to={ROUTES.HOME} alt="netflix" src="images/logo.svg" />
+            <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
+          </Header.Frame>
           <Header.Feature>
+            <Header.FeatureCallOut>
+              Watch Joker at your home now, with thaha, just kidding
+            </Header.FeatureCallOut>
             <Header.Text>
               Arthur Fleck, a party clown, leads an impoverished life with his
               ailing mother. However, when society shuns him and brands him as a
