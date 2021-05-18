@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import SelectProfileContainer from "./profile";
-
-function BrowseContainer({ slides }) {
+function BrowseContainer({ slides, user }) {
   return (
     <div>
-      <SelectProfileContainer />
+      <SelectProfileContainer user={user} />
     </div>
   );
 }
