@@ -15,7 +15,9 @@ function BrowseContainer({ slides }) {
   return profile.displayName ? (
     loading ? (
       <Loading src={user.photoURL} />
-    ) : null
+    ) : (
+      "Browse"
+    )
   ) : (
     <div>
       <SelectProfileContainer user={user} setProfile={setProfile} />

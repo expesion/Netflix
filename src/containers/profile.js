@@ -3,6 +3,7 @@ import * as ROUTES from "../constants/routes";
 import { Header } from "../components";
 import { Profiles } from "../components";
 function SelectProfilesContainer({ user, setProfile }) {
+  console.log(user);
   return (
     <Header bg={false}>
       <Header.Frame>
