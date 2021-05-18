@@ -9,9 +9,12 @@ function BrowseContainer({ slides }) {
   const user = firebase.auth().currentUser || {};
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 3000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [profile.displayName]);
   return profile.displayName ? (
     loading ? (
@@ -19,7 +22,13 @@ function BrowseContainer({ slides }) {
     ) : (
       <>
         <Header src="joker1">
-          <Header.Feature></Header.Feature>
+          <Header.Feature>
+            <Header.Text>
+              Arthur Fleck, a party clown, leads an impoverished life with his
+              ailing mother. However, when society shuns him and brands him as a
+              freak, he decides to embrace the life of crime and chaos.
+            </Header.Text>
+          </Header.Feature>
         </Header>
         <Loading.ReleaseBody />
       </>
