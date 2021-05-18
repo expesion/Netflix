@@ -16,6 +16,6 @@ export default function useContent(target) {
         setContent(content);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [firebase, target]);
   return { [target]: content };
 }
