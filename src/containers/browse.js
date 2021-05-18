@@ -18,7 +18,9 @@ function BrowseContainer({ slides }) {
       <Loading src={user.photoURL} />
     ) : (
       <>
-        <Header src="joker1">Header</Header>
+        <Header src="joker1">
+          <Header.Feature></Header.Feature>
+        </Header>
         <Loading.ReleaseBody />
       </>
     )
