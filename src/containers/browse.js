@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import Fuse from "fuse.js";
 import SelectProfileContainer from "./profile";
 import { FirebaseContext } from "../context/firebase";
 import { Header, Loading, Card, Player } from "../components";
@@ -9,7 +10,7 @@ function BrowseContainer({ slides }) {
   const [profile, setProfile] = useState({});
   const [slideRows, setSlideRows] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSeachTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
   useEffect(() => {
@@ -24,6 +25,17 @@ function BrowseContainer({ slides }) {
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides, category]);
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, {
+      keys: ["data.description", "data.genre", "data.title"],
+    });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+    if (slideRows.length > 0 && searchTerm.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchTerm]);
   return profile.displayName ? (
     loading ? (
       <Loading src={user.photoURL} />
@@ -53,7 +65,7 @@ function BrowseContainer({ slides }) {
             <Header.Group>
               <Header.Search
                 searchTerm={searchTerm}
-                setSeachTerm={setSeachTerm}
+                setSearchTerm={setSearchTerm}
               />
               <Header.Profile>
                 <Header.Picture src={user.photoURL} />
@@ -78,7 +90,7 @@ function BrowseContainer({ slides }) {
             <Header.Text>
               Arthur Fleck, a party clown, leads an impoverished life with his
               ailing mother. However, when society shuns him and brands him as a
-              freak, he decides to embrace the life of crime and chaos..
+              freak, he decides to embrace the life of crime and chaos.
             </Header.Text>
             <Header.PlayButton>Play</Header.PlayButton>
           </Header.Feature>
