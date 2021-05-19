@@ -29,7 +29,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
           </Inner>
           <Close />
         </Overlay>,
-        document.getElementById("root")
+        document.body
       )
     : null;
 };
