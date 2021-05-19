@@ -16,6 +16,7 @@ import {
   SearchInput,
   Search,
   SearchIcon,
+  PlayButton,
 } from "./style/header";
 function Header({ bg = true, children, ...restProps }) {
   return bg ? <Background {...restProps}>{children}</Background> : children;
@@ -47,6 +48,9 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({
   ...restProps
 }) {
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>;
+};
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+  return <PlayButton>{children}</PlayButton>;
 };
 Header.Feature = function HeaderFeature({ children, ...restProps }) {
   return <Feature {...restProps}>{children}</Feature>;

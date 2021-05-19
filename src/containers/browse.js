@@ -61,6 +61,7 @@ function BrowseContainer({ slides }) {
               ailing mother. However, when society shuns him and brands him as a
               freak, he decides to embrace the life of crime and chaos.
             </Header.Text>
+            <Header.PlayButton>Play</Header.PlayButton>
           </Header.Feature>
         </Header>
         <Loading.ReleaseBody />
