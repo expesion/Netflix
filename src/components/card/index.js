@@ -8,6 +8,7 @@ import {
   Item,
   SubTitle,
   Title,
+  Entities,
   Content,
 } from "./styles/card";
 export const FeatureContext = createContext();
@@ -36,6 +37,9 @@ Card.Text = function CardText({ children, ...restProps }) {
 };
 Card.Meta = function CardMeta({ children, ...restProps }) {
   return <Meta {...restProps}>{children}</Meta>;
+};
+Card.Entities = function CardEntities({ children, ...restProps }) {
+  return <Entities {...restProps}>{children}</Entities>;
 };
 Card.Item = function CardSubItem({ item, children, ...restProps }) {
   const { setShowFeature, setItemFeature } = useContext(FeatureContext);
