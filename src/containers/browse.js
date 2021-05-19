@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import SelectProfileContainer from "./profile";
 import { FirebaseContext } from "../context/firebase";
-import { Header, Loading } from "../components";
+import { Header, Loading, Card } from "../components";
 import * as ROUTES from "../constants/routes";
 function BrowseContainer({ slides }) {
+  const [category, setCategory] = useState("series");
   const [profile, setProfile] = useState({});
+  const [slideRows, setSlideRows] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSeachTerm] = useState("");
   const { firebase } = useContext(FirebaseContext);
@@ -18,6 +20,9 @@ function BrowseContainer({ slides }) {
       clearTimeout(timer);
     };
   }, [profile.displayName]);
+  useEffect(() => {
+    setSlideRows(slideRows[category]);
+  }, [slides, category]);
   return profile.displayName ? (
     loading ? (
       <Loading src={user.photoURL} />
@@ -65,6 +70,9 @@ function BrowseContainer({ slides }) {
           </Header.Feature>
         </Header>
         <Loading.ReleaseBody />
+        <Card>
+          <Card.Group></Card.Group>
+        </Card>
       </>
     )
   ) : (

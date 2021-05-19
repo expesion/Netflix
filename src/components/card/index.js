@@ -10,6 +10,11 @@ import {
   Title,
   Entities,
   Content,
+  Maturity,
+  Feature,
+  FeatureTitle,
+  FeatureText,
+  FeatureClose,
 } from "./styles/card";
 export const FeatureContext = createContext();
 function Card({ children, ...restProps }) {
