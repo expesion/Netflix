@@ -101,12 +101,15 @@ function BrowseContainer({ slides }) {
                       );
                     })}
                   </Card.Entities>
-                  {/* <Card.Feature category={category}>
-                    <Player>
+                  {
+                    <Card.Feature category={category}>
+                      <p>hiihihi</p>
+                      {/*  <Player>
                       <Player.Button/>
                       <Player.Video src="/video/bunny.mp4"/>
-                    </Player>
-                  </Card.Feature> */}
+                    </Player> */}
+                    </Card.Feature>
+                  }
                 </Card>
               );
             })}
