@@ -10,7 +10,7 @@ function Home() {
       <HeaderContainer>
         <Feature>
           <Feature.Title>
-            Unlimited films, TV programmes and more,
+            Unlimited films, TV programmes and more and more,
           </Feature.Title>
           <Feature.SubTitle>
             Watch anywhere. Cancel at any time
