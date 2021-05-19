@@ -93,6 +93,10 @@ function BrowseContainer({ slides }) {
                           <Card.Image
                             src={`/images/${category}/${slide.genre}/${slide.slug}/small.jpg`}
                           />
+                          <Card.Meta>
+                            <Card.SubTitle>{slide.title}</Card.SubTitle>
+                            <Card.Text>{slide.description}</Card.Text>
+                          </Card.Meta>
                         </Card.Item>
                       );
                     })}
