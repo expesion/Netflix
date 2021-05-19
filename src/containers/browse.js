@@ -89,7 +89,7 @@ function BrowseContainer({ slides }) {
                   <Card.Entities>
                     {item.data.map((slide) => {
                       return (
-                        <Card.Item key={slide.docId}>
+                        <Card.Item key={slide.docId} item={slide}>
                           <Card.Image
                             src={`/images/${category}/${slide.genre}/${slide.slug}/small.jpg`}
                           />
@@ -101,7 +101,7 @@ function BrowseContainer({ slides }) {
                       );
                     })}
                   </Card.Entities>
-                  {/* <Card.Feature>
+                  {/* <Card.Feature category={category}>
                     <Player>
                       <Player.Button/>
                       <Player.Video src="/video/bunny.mp4"/>
