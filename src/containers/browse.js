@@ -26,7 +26,7 @@ function BrowseContainer({ slides }) {
     setSlideRows(slides[category]);
   }, [slides, category]);
   useEffect(() => {
-    const fuse = new Fuse(slideRows, {
+    const fuse = new Fuse(slides[category], {
       keys: ["data.description", "data.genre", "data.title"],
     });
     const results = fuse.search(searchTerm).map(({ item }) => item);
@@ -35,7 +35,7 @@ function BrowseContainer({ slides }) {
     } else {
       setSlideRows(slides[category]);
     }
-  }, [searchTerm]);
+  }, [searchTerm, category, slideRows, slides]);
   return profile.displayName ? (
     loading ? (
       <Loading src={user.photoURL} />
