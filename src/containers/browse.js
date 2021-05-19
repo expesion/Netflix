@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import SelectProfileContainer from "./profile";
 import { FirebaseContext } from "../context/firebase";
 import { Header, Loading, Card } from "../components";
+import FooterContainer from "./footer";
 import * as ROUTES from "../constants/routes";
 function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("series");
@@ -103,7 +104,6 @@ function BrowseContainer({ slides }) {
                   </Card.Entities>
                   {
                     <Card.Feature category={category}>
-                      <p>hiihihi</p>
                       {/*  <Player>
                       <Player.Button/>
                       <Player.Video src="/video/bunny.mp4"/>
@@ -115,6 +115,7 @@ function BrowseContainer({ slides }) {
             })}
           </Card.Group>
         </Card>
+        <FooterContainer />
       </>
     )
   ) : (
