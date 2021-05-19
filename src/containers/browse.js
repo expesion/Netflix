@@ -22,6 +22,7 @@ function BrowseContainer({ slides }) {
   }, [profile.displayName]);
   useEffect(() => {
     setSlideRows(slides[category]);
+    console.log(slideRows);
   }, [slides, category]);
   return profile.displayName ? (
     loading ? (
@@ -81,7 +82,15 @@ function BrowseContainer({ slides }) {
         </Header>
         <Loading.ReleaseBody />
         <Card>
-          <Card.Group></Card.Group>
+          <Card.Group>
+            {slideRows.map((item) => {
+              return (
+                <Card key={`${category}-${item.title.toLowerCase()}`}>
+                  <Card.Title>{item.title}</Card.Title>
+                </Card>
+              );
+            })}
+          </Card.Group>
         </Card>
       </>
     )

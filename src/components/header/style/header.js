@@ -191,7 +191,7 @@ export const Profile = styled.div`
 `;
 
 export const Feature = styled(Container)`
-  padding: 150px 0 500px 0;
+  padding: 150px 0 300px 0;
   flex-direction: column;
   align-items: normal;
   width: 50%;
