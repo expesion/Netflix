@@ -35,7 +35,8 @@ function BrowseContainer({ slides }) {
     } else {
       setSlideRows(slides[category]);
     }
-  }, [searchTerm, category, slideRows, slides]);
+    // eslint-disable-next-line
+  }, [searchTerm, category, slides]);
   return profile.displayName ? (
     loading ? (
       <Loading src={user.photoURL} />
