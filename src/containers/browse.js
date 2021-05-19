@@ -6,6 +6,7 @@ import * as ROUTES from "../constants/routes";
 function BrowseContainer({ slides }) {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSeachTerm] = useState("");
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
   useEffect(() => {
@@ -34,6 +35,7 @@ function BrowseContainer({ slides }) {
               <Header.TextLink>Films</Header.TextLink>
             </Header.Group>
             <Header.Group>
+              <Header.Search searchTerm={searchTerm} setSeachTerm />
               <Header.Profile>
                 <Header.Picture src={user.photoURL} />
                 <Header.Dropdown>
