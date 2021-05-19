@@ -75,7 +75,7 @@ function BrowseContainer({ slides }) {
             <Header.Text>
               Arthur Fleck, a party clown, leads an impoverished life with his
               ailing mother. However, when society shuns him and brands him as a
-              freak, he decides to embrace the life of crime and chaos.
+              freak, he decides to embrace the life of crime and chaos....
             </Header.Text>
             <Header.PlayButton>Play</Header.PlayButton>
           </Header.Feature>
