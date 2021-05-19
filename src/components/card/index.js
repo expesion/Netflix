@@ -2,6 +2,8 @@ import React, { useState, useContext, createContext } from "react";
 import {
   Container,
   Group,
+  Text,
+  Meta,
   Image,
   Item,
   SubTitle,
@@ -20,5 +22,36 @@ function Card({ children, ...restProps }) {
     </FeatureContext.Provider>
   );
 }
-
+Card.Group = function CardGroup({ children, ...restProps }) {
+  return <Group {...restProps}>{children}</Group>;
+};
+Card.Title = function CardTitle({ children, ...restProps }) {
+  return <Title {...restProps}>{children}</Title>;
+};
+Card.SubTitle = function CardSubTitle({ children, ...restProps }) {
+  return <SubTitle {...restProps}>{children}</SubTitle>;
+};
+Card.Text = function CardText({ children, ...restProps }) {
+  return <Text {...restProps}>{children}</Text>;
+};
+Card.Meta = function CardMeta({ children, ...restProps }) {
+  return <Meta {...restProps}>{children}</Meta>;
+};
+Card.Item = function CardSubItem({ item, children, ...restProps }) {
+  const { setShowFeature, setItemFeature } = useContext(FeatureContext);
+  return (
+    <Item
+      {...restProps}
+      onClick={() => {
+        setItemFeature(item);
+        setShowFeature(true);
+      }}
+    >
+      {children}
+    </Item>
+  );
+};
+Card.Image = function CardImage({ ...restProps }) {
+  return <Image {...restProps} />;
+};
 export default Card;
