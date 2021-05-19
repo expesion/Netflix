@@ -21,7 +21,7 @@ function BrowseContainer({ slides }) {
     };
   }, [profile.displayName]);
   useEffect(() => {
-    setSlideRows(slideRows[category]);
+    setSlideRows(slides[category]);
   }, [slides, category]);
   return profile.displayName ? (
     loading ? (
@@ -36,8 +36,18 @@ function BrowseContainer({ slides }) {
                 alt="netflix"
                 src="images/logo.svg"
               />
-              <Header.TextLink>Series</Header.TextLink>
-              <Header.TextLink>Films</Header.TextLink>
+              <Header.TextLink
+                active={category === "series" ? "true" : "false"}
+                onClick={() => setCategory("series")}
+              >
+                Series
+              </Header.TextLink>
+              <Header.TextLink
+                active={category === "films" ? "true" : "false"}
+                onClick={() => setCategory("films")}
+              >
+                Films
+              </Header.TextLink>
             </Header.Group>
             <Header.Group>
               <Header.Search searchTerm={searchTerm} setSeachTerm />
