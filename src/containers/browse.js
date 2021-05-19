@@ -51,7 +51,10 @@ function BrowseContainer({ slides }) {
               </Header.TextLink>
             </Header.Group>
             <Header.Group>
-              <Header.Search searchTerm={searchTerm} setSeachTerm />
+              <Header.Search
+                searchTerm={searchTerm}
+                setSeachTerm={setSeachTerm}
+              />
               <Header.Profile>
                 <Header.Picture src={user.photoURL} />
                 <Header.Dropdown>
