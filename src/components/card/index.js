@@ -46,6 +46,18 @@ Card.Meta = function CardMeta({ children, ...restProps }) {
 Card.Entities = function CardEntities({ children, ...restProps }) {
   return <Entities {...restProps}>{children}</Entities>;
 };
+Card.Feature = function cardFeature({ children, ...restProps }) {
+  const { showFeature, itemFeature, setShowFeature } =
+    useContext(FeatureContext);
+
+  return showFeature ? (
+    <Feature
+      src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
+    >
+      {children}
+    </Feature>
+  ) : null;
+};
 Card.Item = function CardSubItem({ item, children, ...restProps }) {
   const { setShowFeature, setItemFeature } = useContext(FeatureContext);
   return (

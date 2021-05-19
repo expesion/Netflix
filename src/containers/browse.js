@@ -101,6 +101,12 @@ function BrowseContainer({ slides }) {
                       );
                     })}
                   </Card.Entities>
+                  {/* <Card.Feature>
+                    <Player>
+                      <Player.Button/>
+                      <Player.Video src="/video/bunny.mp4"/>
+                    </Player>
+                  </Card.Feature> */}
                 </Card>
               );
             })}
