@@ -41,14 +41,21 @@ export const SubTitle = styled.h2`
 
   @media (max-width: 600px) {
     font-size: 18px;
+    margin-bottom: 25px;
   }
 `;
 
 export const Image = styled.img`
   max-width: 100%;
   height: auto;
+  border: 0;
+  position: relative;
+  z-index: 2;
 `;
-
+export const AnimationContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
 export const Item = styled.div`
   display: flex;
   border-bottom: 8px solid #222;
@@ -56,11 +63,27 @@ export const Item = styled.div`
   color: white;
   overflow: hidden;
 `;
-
+export const Video = styled.div`
+  width: 100%;
+  height: 100%;
+  max-width: 73%;
+  max-height: 54%;
+  position: absolute;
+  ${({ top }) => top && `top: ${top}`};
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+`;
 export const Container = styled.div`
   @media (max-width: 1000px) {
     ${Item}:last-of-type h2 {
       margin-bottom: 50px;
     }
+  }
+  ${Item}:first-of-type {
+    border-top: 8px solid #222;
   }
 `;

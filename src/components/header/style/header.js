@@ -26,6 +26,7 @@ export const Container = styled.div`
   height: 100px;
   justify-content: space-between;
   align-items: center;
+  padding: 50px 0px;
 
   a {
     display: flex;
