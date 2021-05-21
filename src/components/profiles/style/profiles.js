@@ -30,6 +30,7 @@ export const List = styled.ul`
   margin: 0;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const Name = styled.p`

@@ -24,10 +24,10 @@ function BrowseContainer({ slides }) {
       localStorage.setItem(
         user.email,
         JSON.stringify([
-          { displayName: user.displayName, photoURL: user.photoURL },
+          { displayName: user.displayName, photoURL: +user.photoURL },
         ])
       );
-      setUsers([{ displayName: user.displayName, photoURL: user.photoURL }]);
+      setUsers([{ displayName: user.displayName, photoURL: +user.photoURL }]);
     } else {
       const allUser = JSON.parse(localStorage.getItem(user.email));
       if (allUser) {

@@ -31,13 +31,13 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 export const Heading = styled.h1`
-  font-size: 4vw;
+  font-size: 4rem;
   margin: 0;
   font-weight: 400;
   color: #fff;
 `;
 export const SubHeading = styled.h3`
-  font-size: 1.3vw;
+  font-size: 1.3rem;
   color: #666;
   font-weight: 400;
 `;
@@ -50,8 +50,8 @@ export const Section = styled.div`
   align-items: center;
 `;
 export const Image = styled.img`
-  height: 8vw;
-  width: 8vw;
+  height: 8rem;
+  width: 8rem;
   max-height: 180px;
   max-width: 180px;
   min-height: 80px;
@@ -67,11 +67,11 @@ export const Input = styled.input`
   margin: 0 0.8em 0 0;
   padding: 0.2em 0.6em;
   color: #fff;
-  font-size: 1.3vw;
+  font-size: 1.3rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  text-indent: 0.1vw;
+  text-indent: 0.1rem;
 `;
 export const Button = styled.button`
   background: #fff;
@@ -80,7 +80,7 @@ export const Button = styled.button`
   font-weight: 700;
   display: block;
   margin: 2em 0 1em 0;
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   border: 1px solid grey;
   color: grey;
   text-transform: uppercase;
