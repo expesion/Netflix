@@ -9,6 +9,14 @@ export const Container = styled.div`
   max-width: 80%;
 `;
 
+export const UserSelection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: row;
+`;
 export const Title = styled.h1`
   width: 100%;
   color: #fff;
@@ -41,6 +49,19 @@ export const Picture = styled.img`
   height: auto;
   border: 3px solid black;
   cursor: pointer;
+`;
+export const Add = styled.div`
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  padding: 9px;
+  border: 3px solid black;
+  margin-top: -50px;
+  margin-left: 20px;
+  cursor: pointer;
+  &:hover {
+    background: #ffffff;
+  }
 `;
 
 export const Item = styled.li`

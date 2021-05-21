@@ -9,10 +9,28 @@ function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("series");
   const [profile, setProfile] = useState({});
   const [slideRows, setSlideRows] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    if (!localStorage.getItem(user.email)) {
+      localStorage.setItem(
+        user.email,
+        JSON.stringify([
+          { displayName: user.displayName, photoURL: user.photoURL },
+        ])
+      );
+      setUsers([user.displayName]);
+    } else {
+      const allUser = JSON.parse(localStorage.getItem(user.email));
+      setUsers([...allUser]);
+    }
+    // eslint-disable-next-line
+  }, []);
+
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
@@ -22,9 +40,11 @@ function BrowseContainer({ slides }) {
       clearTimeout(timer);
     };
   }, [profile.displayName]);
+
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides, category]);
+
   useEffect(() => {
     const fuse = new Fuse(slides[category], {
       keys: ["data.description", "data.genre", "data.title"],
@@ -37,6 +57,14 @@ function BrowseContainer({ slides }) {
     }
     // eslint-disable-next-line
   }, [searchTerm, category, slides]);
+
+  const addUsers = (name, photoURL) => {
+    const allUser = JSON.parse(localStorage.getItem(user.email));
+    allUser.push({ displayName: name, photoURL: photoURL });
+    localStorage.setItem(user.email, JSON.stringify(allUser));
+    setUsers([...allUser]);
+  };
+
   return profile.displayName ? (
     loading ? (
       <Loading src={user.photoURL} />
@@ -134,11 +162,16 @@ function BrowseContainer({ slides }) {
         <FooterContainer />
       </>
     )
-  ) : (
+  ) : user.displayName ? (
     <div>
-      <SelectProfileContainer user={user} setProfile={setProfile} />
+      <SelectProfileContainer
+        user={user}
+        setProfile={setProfile}
+        addUsers={addUsers}
+        users={users}
+      />
     </div>
-  );
+  ) : null;
 }
 
 export default BrowseContainer;

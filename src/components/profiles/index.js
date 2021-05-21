@@ -6,6 +6,8 @@ import {
   Name,
   Picture,
   Title,
+  Add,
+  UserSelection,
 } from "./style/profiles";
 function Profiles({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -21,6 +23,16 @@ Profiles.User = function profileUser({ children, ...restProps }) {
 };
 Profiles.Name = function profileName({ children, ...restProps }) {
   return <Name {...restProps}>{children}</Name>;
+};
+Profiles.Add = function profileAdd({ children, ...restProps }) {
+  return <Add {...restProps}>{children}</Add>;
+};
+
+Profiles.UserSelection = function profileUserSelection({
+  children,
+  ...restProps
+}) {
+  return <UserSelection {...restProps}>{children}</UserSelection>;
 };
 Profiles.Picture = function profilePicture({ children, src, ...restProps }) {
   return (
