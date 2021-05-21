@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { AddProfile as AP } from "../components";
-function AddProfile({ addProfileToProfiles, photoURL }) {
+function AddProfile({ addProfileToProfiles, photoURL, cancelAdding }) {
   const [text, setText] = useState("");
   const addProfile = () => {
     addProfileToProfiles(text, photoURL);
   };
+
   return (
     <AP>
       <AP.Heading>Add Profile</AP.Heading>
@@ -20,7 +21,7 @@ function AddProfile({ addProfileToProfiles, photoURL }) {
       </AP.Section>
       <AP.SubHeading>
         <AP.Button onClick={addProfile}>CONTINUE</AP.Button>
-        <AP.Button>CANCEL</AP.Button>
+        <AP.Button onClick={cancelAdding}>CANCEL</AP.Button>
       </AP.SubHeading>
     </AP>
   );

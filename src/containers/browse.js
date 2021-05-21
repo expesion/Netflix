@@ -16,17 +16,23 @@ function BrowseContainer({ slides }) {
   const user = firebase.auth().currentUser || {};
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    if (!localStorage.getItem(user.email)) {
+    if (
+      !localStorage.getItem(user.email) &&
+      user.displayName &&
+      user.photoURL
+    ) {
       localStorage.setItem(
         user.email,
         JSON.stringify([
           { displayName: user.displayName, photoURL: user.photoURL },
         ])
       );
-      setUsers([user.displayName]);
+      setUsers([{ displayName: user.displayName, photoURL: user.photoURL }]);
     } else {
       const allUser = JSON.parse(localStorage.getItem(user.email));
-      setUsers([...allUser]);
+      if (allUser) {
+        setUsers([...allUser]);
+      }
     }
     // eslint-disable-next-line
   }, []);
@@ -67,7 +73,7 @@ function BrowseContainer({ slides }) {
 
   return profile.displayName ? (
     loading ? (
-      <Loading src={user.photoURL} />
+      <Loading src={profile.photoURL} />
     ) : (
       <>
         <Header src="joker1" dontShowOnSmallViewPort>
@@ -97,11 +103,11 @@ function BrowseContainer({ slides }) {
                 setSearchTerm={setSearchTerm}
               />
               <Header.Profile>
-                <Header.Picture src={user.photoURL} />
+                <Header.Picture src={profile.photoURL} />
                 <Header.Dropdown>
                   <Header.Group>
-                    <Header.Picture src={user.photoURL} />
-                    <Header.TextLink>{user.displayName}</Header.TextLink>
+                    <Header.Picture src={profile.photoURL} />
+                    <Header.TextLink>{profile.displayName}</Header.TextLink>
                   </Header.Group>
                   <Header.Group>
                     <Header.TextLink onClick={() => firebase.auth().signOut()}>

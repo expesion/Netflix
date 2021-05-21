@@ -90,4 +90,9 @@ export const Button = styled.button`
   background-color: transparent;
   display: inline-block;
   margin-right: 20px;
+  &: hover {
+    background: #c00;
+    border: 1px solid #c00;
+    color: #fff;
+  }
 `;

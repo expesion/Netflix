@@ -7,7 +7,7 @@ import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import AddProfile from "../pages/addProfile";
 function SelectProfilesContainer({ user, setProfile, addUsers, users }) {
   const [isProfile, setIsProfile] = useState(false);
-  const [photoURL, setPhotoURL] = useState(Math.floor(Math.random() * 5));
+  const [photoURL, setPhotoURL] = useState(Math.floor(Math.random() * 5) + 1);
   const addProfileToProfiles = (name, id) => {
     addUsers(name, id);
     setIsProfile(false);
@@ -20,11 +20,14 @@ function SelectProfilesContainer({ user, setProfile, addUsers, users }) {
     }
     let cId = photoURL;
     while (photoURLS.includes(cId)) {
-      cId = Math.floor(Math.random() * 5);
+      cId = Math.floor(Math.random() * 5) + 1;
     }
     setPhotoURL(cId);
     console.log(photoURL);
     setIsProfile(true);
+  };
+  const cancelAdding = () => {
+    setIsProfile(false);
   };
   return (
     <Header bg={false}>
@@ -64,6 +67,7 @@ function SelectProfilesContainer({ user, setProfile, addUsers, users }) {
         <AddProfile
           addProfileToProfiles={addProfileToProfiles}
           photoURL={photoURL}
+          cancelAdding={cancelAdding}
         />
       )}
     </Header>
