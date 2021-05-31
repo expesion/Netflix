@@ -16,6 +16,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
   return showPlayer
     ? ReactDOM.createPortal(
         <Overlay
+          data-testid="player"
           {...restProps}
           onClick={({ target }) => {
             if (target.id === "netlix-player") return;
